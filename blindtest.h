@@ -25,4 +25,6 @@ void play_song_excerpt_at(const char *filename, int start, int seconds);
 
 int load_songs(char *filename, Song lib[]);
 
+void shuffleSong(Song lib[], int n);
+
 #endif

@@ -151,3 +151,16 @@ int load_songs(char *filename, Song lib[])
     fclose(f);
     return count;
 }
+
+void shuffleSong(Song lib[], int n)
+{
+
+    for (int i = n - 1; i >= 0; i--)
+    {
+        int j = rand() % (i + 1);
+
+        Song temp = lib[i];
+        lib[i] = lib[j];
+        lib[j] = temp;
+    }
+}
