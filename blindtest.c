@@ -4,6 +4,7 @@
 #include <string.h>
 #include <time.h>
 #include <ctype.h>
+#include "blindtest.h"
 
 /* -------------------------------------------------- */
 /* OUTILS SUR LES CHAINES                             */
@@ -102,7 +103,7 @@ void play_song_excerpt_at(const char *filename, int start, int seconds)
 Charge les morceaux depuis songs.txt dans un tableau.
 Retourne le nombre de morceaux chargés.
 */
-/***/ load_songs(/***/ filename, /***/)
+int load_songs(char *filename, Song lib[])
 {
     FILE *f;
     char line[3 * 256];
@@ -140,20 +141,13 @@ Retourne le nombre de morceaux chargés.
 
         // TO DO
         // STOCKER LES CHANSONS
+        strncpy(lib[count].filename, file, sizeof(lib[count].filename) - 1);
+        strncpy(lib[count].title, title, sizeof(lib[count].title - 1));
+        strncpy(lib[count].artist, artist, sizeof(lib[count].artist - 1));
 
         count++;
     }
 
     fclose(f);
     return count;
-}
-
-/* -------------------------------------------------- */
-/* PROGRAMME PRINCIPAL                                */
-/* -------------------------------------------------- */
-
-int main()
-{
-
-    return 0;
 }
